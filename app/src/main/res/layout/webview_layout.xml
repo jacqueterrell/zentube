@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+    
+    <data>
+        
+        <import type="android.view.View" />
+        
+        <variable
+                name="viewModel"
+                type="com.technologies.zenlight.zentube.userInterface.main.MainActivityViewModel" />
+    
+    </data>
+    
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+            
+            <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/black_color"
+                    android:orientation="horizontal">
+                
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="5dp"
+                        android:text="A Jacque' Terrell Creation"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                        android:textColor="@color/transparent_white" />
+                
+                <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_lock_screen"
+                        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:text="Lock Screen"
+                        android:textColor="@color/white"
+                        android:textSize="13sp"
+                        android:onClick="@{()-> viewModel.onLockScreenClicked()}"
+                        app:icon="@drawable/ic_lock"
+                        app:rippleColor="@color/transparent_white" />
+                
+                <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_unlock_screen"
+                        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:text="Unlock Screen (hold)"
+                        android:textColor="@color/white"
+                        android:textSize="13sp"
+                        android:visibility="gone"
+                        android:onLongClick = "@{()-> viewModel.onUnLockScreenLongClicked()}"
+                        app:icon="@drawable/ic_lock_open"
+                        app:rippleColor="@color/transparent_white" />
+            
+            </FrameLayout>
+            
+            <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+                
+                <WebView
+                        android:id="@+id/webview_main"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                
+                <FrameLayout
+                        android:id="@+id/layout_lock_screen"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:visibility="invisible"
+                        android:background="#1a000000"/>
+                
+                <ProgressBar
+                        android:id="@+id/layout_progress"
+                        android:visibility="gone"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+            
+            </FrameLayout>
+        
+        
+        </LinearLayout>
+    
+    
+    </FrameLayout>
+
+</layout>

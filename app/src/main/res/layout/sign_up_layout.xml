@@ -10,7 +10,7 @@
         
         <variable
                 name="viewModel"
-                type="com.technologies.zenlight.defaultapp.userInterface.login.signUp.SignUpViewModel"/>
+                type="com.technologies.zenlight.zentube.userInterface.login.signUp.SignUpViewModel"/>
     
     </data>
     
